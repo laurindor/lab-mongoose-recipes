@@ -60,5 +60,16 @@ mongoose
   .catch((error) => console.log(error))
 
 
-mongoose.connection.on('disconnected', () => console.log('Mongoose disconnected'));
+mongoose.connection //copied from the sol lab because mongoose is giving me an error 
+			.close()
+			.then(() => console.log(`connection closed`))
+			.catch((err) =>
+				console.log(
+					`an error while closing database connection has occurred: ${err}`
+				)
+			);
 
+  })
+  .catch(error => {
+    console.error('Error connecting to the database', error);
+  });
