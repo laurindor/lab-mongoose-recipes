@@ -51,11 +51,13 @@ mongoose
    .catch((err) => console.log(err))
     
 
-   Recipe.findOneAndUpdate(
-    {title: "Rigatoni alla Genovese"},{duration: 100},{new: true}
-  ).then(() => console.log("Recipe Updated"))
+   Recipe.findOneAndUpdate({title: "Rigatoni alla Genovese"},{duration: 100},{new: true})
+  .then(() => console.log("Recipe Updated"))
   .catch((err) => console.log(err))
-  
+
+  Recipe.deleteOne({title: "Carrot Cake"})
+  .then(() => console.log("Carrot Cake recipe deleted"))
+  .catch((error) => console.log(error))
 
 
 mongoose.connection.on('disconnected', () => console.log('Mongoose disconnected'));
